@@ -6,16 +6,16 @@ import com.geektech.ln7.data.model.NoteEntity
 @Dao
 interface NoteDao{
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun createNote(noteEntity: NoteEntity)
 
     @Query("SELECT * FROM notes")
-    fun getAllNotes():List<NoteEntity>
+    suspend fun getAllNotes():List<NoteEntity>
 
     @Update
-    fun editNote(noteEntity: NoteEntity)
+   suspend fun editNote(noteEntity: NoteEntity)
 
     @Delete
-    fun deleteNote(noteEntity: NoteEntity)
+    suspend fun deleteNote(noteEntity: NoteEntity)
 
 }
