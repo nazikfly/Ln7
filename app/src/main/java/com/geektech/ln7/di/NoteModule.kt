@@ -35,5 +35,3 @@ object NoteModule {
     ):NoteRepository=NoteRepositoryImpl(noteDao)
 
 }
-
-

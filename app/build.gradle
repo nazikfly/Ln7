@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.geektech.ln7"
@@ -31,6 +31,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures{
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -42,8 +45,8 @@ dependencies {
     implementation 'androidx.room:room-common:2.4.3'
     implementation 'com.google.android.datatransport:transport-runtime:3.1.8'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
      //Room
     implementation "androidx.room:room-runtime:2.4.3"
@@ -59,9 +62,13 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
 
     //lifecycle
-  //  androidx.lifecycle:lifecycle-viewmodel-ktx:
+    def  lifecycle_version ="2.5.1"
+  implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+  implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
 
- //   androidx.lifecycle:lifecycle-runtime-ktx:
+    // reflection-free flavor
+    implementation 'com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6'
+
 
 
 }
