@@ -13,7 +13,6 @@ import com.geektech.ln7.databinding.FragmentNotesBinding
 import com.geektech.ln7.presentation.utils.UIState
 import kotlinx.coroutines.launch
 
-@AndroidEntryPoint
 class NotesFragment : Fragment(R.layout.fragment_notes) {
 
   private val binding by viewBinding(FragmentNotesBinding::bind)
