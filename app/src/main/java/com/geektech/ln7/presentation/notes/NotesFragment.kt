@@ -1,11 +1,10 @@
 package com.geektech.ln7.presentation.notes
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.geektech.ln7.R
@@ -22,12 +21,13 @@ class NotesFragment : Fragment(R.layout.fragment_notes) {
     super.onViewCreated(view, savedInstanceState)
     viewModel.getAllNotes()
 
+
     viewLifecycleOwner.lifecycleScope.launch {
       viewModel.getAllNotesState.collect { state->
         when(state){
           is UIState.Empty->{}
           is UIState.Error->{
-            Toast.makeText(requireContext(),state.message,Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(),state.massage,Toast.LENGTH_SHORT).show()
           }
           is UIState.Loanding->{}
           is UIState.Success->{}

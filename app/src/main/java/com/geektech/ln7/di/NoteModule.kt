@@ -8,6 +8,9 @@ import com.geektech.ln7.data.repository.NoteRepositoryImpl
 import com.geektech.ln7.domain.repository.NoteRepository
 import com.google.android.datatransport.runtime.dagger.Module
 import com.google.android.datatransport.runtime.dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
@@ -17,7 +20,7 @@ object NoteModule {
     @Singleton
     @Provides
     fun provideNoteDatabase(
-        @ApplicationContext context: Context
+    @ApplicationContext context: Context
     ):NoteDatabase = Room.databaseBuilder(
         context,
     NoteDatabase::class.java,
