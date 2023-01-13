@@ -7,7 +7,7 @@ import com.geektech.ln7.data.model.NoteEntity
 interface NoteDao{
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun createNote(noteEntity: NoteEntity)
+    suspend fun createNote(noteEntity: NoteEntity)
 
     @Query("SELECT * FROM notes")
     suspend fun getAllNotes():List<NoteEntity>
