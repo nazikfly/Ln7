@@ -69,13 +69,12 @@ dependencies {
   implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
   implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
 
-    // reflection-free flavor
+    // reflection-free flavor...ViewBindingDelegate
     implementation 'com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6'
 
     //NavController
     def nav_version = "2.5.3"
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
-
 
 }
