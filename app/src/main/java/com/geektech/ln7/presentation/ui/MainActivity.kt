@@ -1,5 +1,6 @@
 package com.geektech.ln7.presentation.ui
 
+<<<<<<< HEAD
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -15,4 +16,7 @@ class MainActivity:AppCompatActivity(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
     }
+=======
+class MainActivity {
+>>>>>>> origin/master
 }
