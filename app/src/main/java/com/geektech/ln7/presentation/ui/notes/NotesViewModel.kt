@@ -3,11 +3,7 @@ package com.geektech.ln7.presentation.ui.notes
 import com.geektech.ln7.domain.model.Note
 import com.geektech.ln7.domain.usecase.DeleteNoteUseCase
 import com.geektech.ln7.domain.usecase.GetAllNotesUseCase
-<<<<<<< HEAD
 import com.geektech.ln7.presentation.ui.base.BaseViewModel
-=======
-import com.geektech.ln7.presentation.base.BaseViewModel
->>>>>>> origin/master
 import com.geektech.ln7.presentation.utils.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,11 +27,10 @@ class NotesViewModel @Inject constructor(
     }
 
     fun deleteNote(note: Note) {
-<<<<<<< HEAD
+
         deleteNoteUseCase.collectFlow(_deleteNotesState)
-=======
-            deleteNoteUseCase.deleteNote(note).collectFlow(deleteNotesState)
->>>>>>> origin/master
+            deleteNoteUseCase.deleteNote(note).collectFlow(_deleteNotesState)
+
     }
 }
 

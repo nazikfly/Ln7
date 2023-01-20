@@ -9,6 +9,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.viewbinding.ViewBinding
+import com.geektech.ln7.databinding.FragmentAddNoteBinding
+import com.geektech.ln7.databinding.FragmentNotesBinding
 import com.geektech.ln7.presentation.utils.UIState
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -51,4 +53,6 @@ abstract class BaseFragment<VB:ViewBinding, VM:ViewModel>(
             }
         }
     }
+
+    abstract val binding: FragmentAddNoteBinding
 }

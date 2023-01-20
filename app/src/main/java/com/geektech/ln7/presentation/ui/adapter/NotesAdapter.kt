@@ -2,11 +2,14 @@ package com.geektech.ln7.presentation.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.constraintlayout.motion.widget.MotionScene
 import androidx.recyclerview.widget.RecyclerView
 import com.geektech.ln7.databinding.ItemNotesBinding
 import com.geektech.ln7.domain.model.Note
+import kotlin.reflect.KFunction1
 
-class NotesAdapter:RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
+class NotesAdapter( private val onClick:(Note)
+):RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
     private var list= listOf<Note>()
 
     fun submitList(list: List<Note>){
@@ -24,10 +27,13 @@ class NotesAdapter:RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
     }
     override fun getItemCount()=list.size
 
-    class NoteViewHolder (private val binding:ItemNotesBinding): RecyclerView.ViewHolder(binding.root) {
+  inner  class NoteViewHolder (private val binding:ItemNotesBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(note: Note) {
             binding.tvTitle.text=note.title
             binding.tvDescription.text=note.descriptor
+            itemView.setOnClickListener{
+                onClick.invoke(note)
+            }
         }
     }
 

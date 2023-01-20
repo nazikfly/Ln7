@@ -3,20 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#8BC34A"
-    tools:context=".presentation.ui.notes.NotesFragment"
-    tools:ignore="ExtraText">
-=======
-    tools:context=".presentation.ui.notes.NotesFragment">
->>>>>>> origin/master
-
-   <androidx.recyclerview.widget.RecyclerView
-       android:id="@+id/rv_notes"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       tools:listitem="@layout/item_notes"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_notes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_notes"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_open_form"
@@ -38,5 +30,6 @@
         app:trackCornerRadius="16dp"
         app:trackColor="#771913"
         app:indicatorColor="#FF9800"/>
+
 
 </FrameLayout>
