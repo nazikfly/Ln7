@@ -1,8 +1,5 @@
 package com.geektech.ln7.data.base
 
-import android.net.NetworkRequest
-import com.geektech.ln7.data.mappers.toNoteEntity
-import com.geektech.ln7.domain.model.Note
 import com.geektech.ln7.domain.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow

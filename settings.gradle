@@ -13,4 +13,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Ln7"
-include ':app'
+include (
+        ":app",":data",":domain"
+)

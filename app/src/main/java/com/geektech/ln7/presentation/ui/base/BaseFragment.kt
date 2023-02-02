@@ -54,5 +54,5 @@ abstract class BaseFragment<VB:ViewBinding, VM:ViewModel>(
         }
     }
 
-    abstract val binding: FragmentAddNoteBinding
+    abstract val binding: VB
 }

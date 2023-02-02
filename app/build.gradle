@@ -1,80 +1,85 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id 'com.google.dagger.hilt.android'
+    id(Plugins.AGP.application)
+    id(Plugins.Kotlin.kotlin)
+    id(Plugins.Kotlin.kapt)
+    id(Plugins.DaggerHilt.hilt)
 }
 
 android {
-    compileSdk 33
+    namespace = "com.geektech.L7"
+
+    compileSdk = AndroidConfig.compileSdk
 
     defaultConfig {
-        applicationId "com.geektech.ln7"
-        minSdk 24
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        applicationId = "com.geektech.L7"
+        minSdk = AndroidConfig.minSdk
+        targetSdk = AndroidConfig.targetSdk
+        versionCode = 1
+        versionName = "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility =JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "1.8"
     }
-    buildFeatures{
-        viewBinding true
+    buildFeatures {
+        viewBinding = true
     }
 }
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'androidx.room:room-common:2.4.3'
-    implementation 'com.google.android.datatransport:transport-runtime:3.1.8'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation(project(":domain"))
+    implementation(project(":data"))
 
-     //Room
-    implementation "androidx.room:room-runtime:2.4.3"
-    kapt "androidx.room:room-compiler:2.4.3"
-    implementation "androidx.room:room-ktx:2.4.3"
+    //UI
+    implementation (Dependencies.UI.core)
+    implementation(Dependencies.UI.appCompact)
+    implementation (Dependencies.UI.material)
+    implementation (Dependencies.UI.constraintLayout)
+    testImplementation (Dependencies.UI.junit)
+    androidTestImplementation (Dependencies.UI.androidJunit)
+    androidTestImplementation (Dependencies.UI.espressoCore)
+    implementation (Dependencies.UI.fragment)
 
-    //
-    implementation "androidx.fragment:fragment-ktx:1.5.5"
+    //Room
+    implementation (Dependencies.Room.runtime)
+    implementation (Dependencies.Room.room)
+    kapt (Dependencies.Room.compiler)
 
-    //Dagger.Hilt
-    def hilt_version = "2.44.2"
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    // Coroutines
+    implementation(Dependencies.Coroutines.android)
+    implementation(Dependencies.Coroutines.core)
 
-    //Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4"
+    // Dagger-Hilt
+    implementation(Dependencies.DaggerHilt.android)
+    kapt (Dependencies.DaggerHilt.compiler)
 
-    //lifecycle
-    def  lifecycle_version ="2.5.1"
-  implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-  implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_version"
+    //Navigation
+    implementation (Dependencies.Navigation.fragment)
+    implementation (Dependencies.Navigation.UI)
 
-    // reflection-free flavor...ViewBindingDelegate
-    implementation 'com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.6'
+    //Lifecycle
+    implementation (Dependencies.Lifecycle.viewModel)
+    implementation (Dependencies.Lifecycle.runtime)
 
-    //NavController
-    def nav_version = "2.5.3"
-    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+    //ViewBindingDelegate
+    implementation (Dependencies.ViewBinding.delegate)
 
+
+    //Room
+    implementation(Dependencies.Room.room)
+    implementation(Dependencies.Room.compiler)
+    implementation(Dependencies.Room.runtime)
 }

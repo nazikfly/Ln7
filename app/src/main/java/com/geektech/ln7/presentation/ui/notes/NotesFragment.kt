@@ -19,7 +19,7 @@ class NotesFragment : BaseFragment<FragmentNotesBinding, NotesViewModel>(R.layou
 
   override val binding by viewBinding(FragmentNotesBinding::bind)
   override val viewModel by viewModels<NotesViewModel>()
-  private val notesAdapter by lazy { NotesAdapter(this::onItemClick) }
+  private val notesAdapter by lazy { NotesAdapter() }
 
   override fun initialize() {
     with(binding.rvNotes) {
@@ -60,7 +60,7 @@ class NotesFragment : BaseFragment<FragmentNotesBinding, NotesViewModel>(R.layou
       )
     }
 
-  private fun onItemClick(note: Note) {
+  private fun onItemClick(note: com.geektech.ln7.domain.model.Note) {
     val bundle=Bundle()
       bundle.putSerializable(ARG_EDIT_NOTE,note)
     findNavController().navigate(R.id.action_notesFragment_to_addEditNoteFragment,bundle)

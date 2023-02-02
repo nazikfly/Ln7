@@ -8,11 +8,11 @@ import com.geektech.ln7.databinding.ItemNotesBinding
 import com.geektech.ln7.domain.model.Note
 import kotlin.reflect.KFunction1
 
-class NotesAdapter( private val onClick:(Note)
+class NotesAdapter(
 ):RecyclerView.Adapter<NotesAdapter.NoteViewHolder>() {
-    private var list= listOf<Note>()
+    private var list= listOf<com.geektech.ln7.domain.model.Note>()
 
-    fun submitList(list: List<Note>){
+    fun submitList(list: List<com.geektech.ln7.domain.model.Note>){
         this.list=list
         notifyDataSetChanged()
     }
@@ -28,11 +28,11 @@ class NotesAdapter( private val onClick:(Note)
     override fun getItemCount()=list.size
 
   inner  class NoteViewHolder (private val binding:ItemNotesBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(note: Note) {
+        fun bind(note: com.geektech.ln7.domain.model.Note) {
             binding.tvTitle.text=note.title
             binding.tvDescription.text=note.descriptor
             itemView.setOnClickListener{
-                onClick.invoke(note)
+
             }
         }
     }

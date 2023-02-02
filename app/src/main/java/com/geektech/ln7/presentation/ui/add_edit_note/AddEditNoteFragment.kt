@@ -1,4 +1,6 @@
 package com.geektech.ln7.presentation.ui.add_edit_note
+import android.os.Build
+import android.provider.ContactsContract
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -14,10 +16,18 @@ class AddEditNoteFragment :
     BaseFragment<FragmentAddNoteBinding,AddEditNoteViewModel>(R.layout.fragment_add_note) {
           override val binding by viewBinding(FragmentAddNoteBinding::bind)
           override val viewModel by viewModels<AddEditNoteViewModel>()
-          private var note:Note?=null
+          private var note: Note?=null
 
     override fun initialize() {
-        note = arguments?.getSerializable(NotesFragment.ARG_EDIT_NOTE) as Note
+        if(BuildVERSION.SDK_INT==Build.VERSION_CODES.TIRAMISU) {
+            note = arguments?.getSerializable(
+                NotesFragment.ARG_EDIT_NOTE,
+                Note::class.java
+            )
+        }else{
+            note = arguments?.getSerializable(
+                NotesFragment.ARG_EDIT_NOTE) as Note?
+        }
         if (note!=null){
             binding.etTitle.setText(note!!.title)
             binding.etDescription.setText(note!!.descriptor)
